@@ -25,7 +25,10 @@ price = 500             # price in kzt
 radius = 500            # search diameter 
 user_lat = 51.116041    # user latitude
 user_lon = 71.433403    # user longitude
-res = search.request(category, price, user_lat, user_lon, radius)   # returns available services/goods
+output = search.request(category, price, user_lat, user_lon, radius)   # returns available services/goods
 ```
+Output:
+![Result](https://github.com/AmanzholDaribay/ideathon/output.png)
+
 ## Credits
 For building Database with Postgis extension this project uses [docker-postgis](https://github.com/kartoza/docker-postgis#docker-postgis).
