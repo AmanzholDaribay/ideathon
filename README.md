@@ -16,7 +16,7 @@ sudo docker-compose up -d
 Note: the Database will be filled with random samples.
 
 ## Usage
-In searcher.py, for Service/Good Search run the following:
+In [searcher.py](searcher.py), for Service/Good Search run the following:
 ```python
 search = Searcher()
 
@@ -28,7 +28,7 @@ user_lon = 71.433403    # user longitude
 output = search.request(category, price, user_lat, user_lon, radius)   # returns available services/goods
 ```
 Output:
-![Result](https://github.com/AmanzholDaribay/ideathon/output.png)
+![Result](output.png)
 
 ## Credits
 For building Database with Postgis extension this project uses [docker-postgis](https://github.com/kartoza/docker-postgis#docker-postgis).
