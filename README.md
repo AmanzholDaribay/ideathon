@@ -15,9 +15,11 @@ In database directory, Build and Run Database using [Docker](https://www.docker.
 ```bash
 sudo docker-compose up -d
 ```
-Note: the Database will be filled with random samples.
-
-Install all necessary dependencies 
+Add initial sample data (if you want, update it as you wish):
+```bash
+python migrations.py
+```
+Install all necessary dependencies to connect with Database 
 (if you need, install into specific virtual environment):
 ```bash
 pip install -r requirements.txt
@@ -56,7 +58,7 @@ price = 1000        # kzt
 radius = 500        # meters
 user_lat = 51.115990        # user latitude
 user_lon = 71.431238        # user longitude
-output = manager.request(category, price, user_lat, user_lon, radius)
+Output = manager.request(category, price, user_lat, user_lon, radius)
 ```
 Output:
 ![Result](output.png)
