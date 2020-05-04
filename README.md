@@ -34,8 +34,8 @@ manager = ManagingDatabase()
 service = 'Синнабоны'
 category = 'Выпечка'
 price = 500
-service_lat = 51.116041
-service_lon = 71.433403
+service_lat = 51.115990
+service_lon = 71.431238
 manager.insert_data(service, category, price, service_lat, service_lon)
 ```
 
@@ -49,13 +49,13 @@ run the following:
 ```python
 from main import ManagingDatabase
 
-manager = ManagingDatabase(searcher=True)
+manager = ManagingDatabase()
 
 category = 'Выпечка'
-price = 500
-radius = 500
-user_lat = 51.116041
-user_lon = 71.433403
+price = 1000        # kzt
+radius = 500        # meters
+user_lat = 51.115990        # user latitude
+user_lon = 71.431238        # user longitude
 output = manager.request(category, price, user_lat, user_lon, radius)
 ```
 Output:
