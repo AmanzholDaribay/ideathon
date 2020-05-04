@@ -2,7 +2,9 @@
 
 Korshi Komekshi is an InDriver for services and goods.
 
-This repository contains instructions for creating Database and some of the Backend functions for Service/Good Insertion and Service/Good Search.  
+This repository contains instructions for creating Optimized Database and Main Operations of the Backend: 
+* addition of new Service/Good
+* optimized search of Services/Goods using coordinates and other specifications of Service/Good  
 
 ## Installation
 Download repository:
@@ -15,20 +17,50 @@ sudo docker-compose up -d
 ```
 Note: the Database will be filled with random samples.
 
-## Usage
-In [searcher.py](searcher.py), for Service/Good Search run the following:
-```python
-search = Searcher()
+Install all necessary dependencies 
+(if you need, install into specific virtual environment):
+```bash
+pip install -r requirements.txt
+```
 
-category = 'Выпечка'    # distinct categories
-price = 500             # price in kzt
-radius = 500            # search diameter 
-user_lat = 51.116041    # user latitude
-user_lon = 71.433403    # user longitude
-output = search.request(category, price, user_lat, user_lon, radius)   # returns available services/goods
+## Usage
+### For adding new Service/Good
+In [add_new_data.py](add_new_data.py), for adding new Service or good run following:
+```python
+from main import ManagingDatabase
+
+manager = ManagingDatabase()
+
+service = 'Синнабоны'
+category = 'Выпечка'
+price = 500
+service_lat = 51.116041
+service_lon = 71.433403
+manager.insert_data(service, category, price, service_lat, service_lon)
+```
+
+### For searching Services/Goods
+In [searcher.py](searcher.py), for searching Services or Goods within
+* specific category (distinct)
+* specific price threshold (up to and in kzt)
+* specific search diameter/radius  (meters)
+
+run the following:
+```python
+from main import ManagingDatabase
+
+manager = ManagingDatabase(searcher=True)
+
+category = 'Выпечка'
+price = 500
+radius = 500
+user_lat = 51.116041
+user_lon = 71.433403
+output = manager.request(category, price, user_lat, user_lon, radius)
 ```
 Output:
 ![Result](output.png)
+Note: User in red, Services/Goods in green.
 
 ## Credits
 For building Database with Postgis extension this project uses [docker-postgis](https://github.com/kartoza/docker-postgis#docker-postgis).
